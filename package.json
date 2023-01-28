@@ -1,0 +1,20 @@
+{
+  "name": "prokemia_email_sms_server",
+  "version": "1.0.0",
+  "description": "emailing and sms server for prokemia",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dennis Sammy",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "axios": "^1.2.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.0",
+    "nodemon": "^2.0.20"
+  }
+}
