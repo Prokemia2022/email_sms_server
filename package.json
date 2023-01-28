@@ -4,6 +4,8 @@
   "description": "emailing and sms server for prokemia",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon server.js -p $PORT",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dennis Sammy",
