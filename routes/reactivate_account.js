@@ -13,23 +13,16 @@ router.post("/",async(req,res)=>{
 		return res.status(400).send("No details were found")
 	}else{
 
-		const verify_email_template = `
+		const reactivate_account_email_template = `
 			<body style='font-family: Poppins; padding: 10px;'>
-			  <h2 style="color:#009898;font-size: 36px;text-align: center;">Verify your email Address</h2>
+			  <h2 style="color:green;font-size: 36px;text-align: center;">Your account has been reactivated.</h2>
 			  <main style='text-align:center'>
-			    <p style='text-align:center'> In order to use some of the features in prokemia you need to confrim your email address first.</p>
-			    <p style='text-align:center'> Use the code below to verify your email address.</p>
-			    <p onclick="copyText()" style="text-align:center;background-color: #009393;padding: 10px;color:#fff;border:none;font-size: 20px;font-weight:bold;">${payload.code}</p>
+			    <p style='text-align:center'> We are delighted to notify you that your account has been reactivated following your account review.</p>
+			    <p style='text-align:center'>You can  access features in our platform and use your account appropriately as per our company's guidelines.</p>
+			    <p style='text-align:center'>We apologise for the inconvenience.</p>
 			    <p style='text-align:center'>If you have any questions send us your issues at <a style='color:text-align:center'
 			        href='mailto: help@prokemia.com' target="_blank">help@prokemia.com</a>.</br>We would love to hear from you.</p>
 			  </main>
-			  <script>
-		        function copyText() {
-		            /* Copy text into clipboard */
-		            navigator.clipboard.writeText
-		                (${payload.code});
-		        }
-		    </script>
 			</body>
 		`
 
@@ -48,21 +41,16 @@ router.post("/",async(req,res)=>{
 		  });
 
 		  // send mail with defined transport object
-		  await transporter.sendMail({
+		  let info = await transporter.sendMail({
 		    from: email, // sender address
 		    to: payload.email, // list of receivers
-		    subject: "Verify your email", // Subject line
-		    text: 'Use code to verify your email', // plain text body
-		    html: verify_email_template, // html body
-		  }).then(()=>{
-			 return res.status(200).send("Email sent successfully")	  	
-		  }).catch((err)=>{
-		  	console.log(err)
-		  	return res.status(500).send(err)
-		  })
+		    subject: "Account Reactivation", // Subject line
+		    text: 'Your account has reactivated', // plain text body
+		    html: reactivate_account_email_template, // html body
+		  });
 
-		  //console.log("Message sent: %s", info.messageId);
-		 
+		  // console.log("Message sent: %s", info.messageId);
+		  return res.status(200).send("Email sent successfully")
 	}
 })
 
