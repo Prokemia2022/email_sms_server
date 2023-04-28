@@ -1,5 +1,5 @@
 const express = require("express");
-const nodemailer = require("nodemailer");
+const Transporter = require('../controllers/transporter.js');
 
 const router = express.Router()
 
@@ -25,35 +25,28 @@ router.post("/",async(req,res)=>{
 			</body>
 		`
 
-		  let transporter = nodemailer.createTransport({
-		  	name: 'prokemia.com',
-		    host: "mail.prokemia.com",
-		    port: 465,
-		    secure: true, // true for 465, false for other ports
-		    auth: {
-		      user: 'prokemia@prokemia.com', // generated ethereal user
-		      pass: 'Oj+7KkdH4AK}', // generated ethereal password Oj+7KkdH4AK} x)HfVOwlrxYW
-		    },
-		    tls:{
-		    	rejectUnauthorized:false
-		    }
+		  Transporter.verify(function (error, success) {
+			if (error) {
+			  console.log(error);
+			} else {
+			  console.log("Server is ready to take our messages");
+			}
 		  });
 
 		  // send mail with defined transport object
-		  await transporter.sendMail({
+		  await Transporter.sendMail({
 		    from: email, // sender address
 		    to: payload.email_of_lister, // list of receivers
 		    subject: `Quotaion request for ${payload.name_of_product}`, // Subject line
 		    text: '', // plain text body
 		    html: email_template, // html body
 		  }).then(()=>{
+			console.log('email sent')
 		  	return res.status(200).send("Email sent successfully")
 		  }).catch((err)=>{
 		  	console.log(err)
-		  	return res.status(400).send("error while sending email")
+		  	return res.status(400).send("error while sending quotation email")
 		  });
-		  // return res.status(200).send("Email sent successfully")
-		  //console.log("Message sent: %s", info.messageId);
 	}
 })
 

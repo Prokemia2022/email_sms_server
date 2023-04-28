@@ -18,7 +18,7 @@ const email_verification = require("./routes/email_verification.js");
 const quotation_email = require("./routes/send_quotation_email.js");
 const sample_email = require("./routes/send_sample_email.js");
 
-let origins = ['https://prokemia-admin-web.vercel.app','https://prokemia-admin-web-musembi77.vercel.app','http://localhost:3000'];
+let origins = ['https://prokemia-admin-web.vercel.app','https://prokemia-admin-web-musembi77.vercel.app','http://localhost:3000','https://prokemia-client-web.vercel.app'];
 app.use(cors({credentials:true, origin: "*"}));
 
 

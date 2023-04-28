@@ -1,5 +1,5 @@
 const express = require("express");
-const nodemailer = require("nodemailer");
+const Transporter = require('../controllers/transporter.js');
 
 const router = express.Router()
 
@@ -26,22 +26,8 @@ router.post("/",async(req,res)=>{
 			</body>
 		`
 
-		  let transporter = nodemailer.createTransport({
-		  	name: 'prokemia.com',
-		    host: "mail.prokemia.com",
-		    port: 465,
-		    secure: true, // true for 465, false for other ports
-		    auth: {
-		      user: 'prokemia@prokemia.com', // generated ethereal user
-		      pass: 'Oj+7KkdH4AK}', // generated ethereal password Oj+7KkdH4AK} x)HfVOwlrxYW
-		    },
-		    tls:{
-		    	rejectUnauthorized:false
-		    }
-		  });
-
 		  // send mail with defined transport object
-		  let info = await transporter.sendMail({
+		  await Transporter.sendMail({
 		    from: email, // sender address
 		    to: payload.email, // list of receivers
 		    subject: "Account Suspension", // Subject line
