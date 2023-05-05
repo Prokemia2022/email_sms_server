@@ -33,10 +33,10 @@ router.post("/",async(req,res)=>{
 			}
 		  });
 
-		  // send mail with defined transport object
+		  // send mail with defined transport object to company
 		  await Transporter.sendMail({
 		    from: email, // sender address
-		    to: payload.requester_email, // list of receivers
+		    to: payload.email_of_lister, // list of receivers
 		    subject: `Sample request for ${payload.name_of_product}`, // Subject line
 		    text: '', // plain text body
 		    html: email_template, // html body
