@@ -2,7 +2,7 @@ const nodemailer = require("nodemailer");
 
 let Transporter = nodemailer.createTransport({
     name: 'prokemia.com',
-    host: "lon110.truehost.cloud",
+    host: "mail.prokemia.com",
     port: 465,
     secure: true, // true for 465, false for other ports
     auth: {
