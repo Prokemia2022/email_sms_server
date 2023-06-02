@@ -15,13 +15,14 @@ router.post("/",async(req,res)=>{
 
 		const verify_email_template = `
 			<body style='font-family: Poppins; padding: 10px;'>
-			  <h2 style="color:#009898;font-size: 36px;text-align: center;">Verify your email Address</h2>
+			  <h2 style="color:#009898;font-size: 36px;text-align: center;">Verify your email address</h2>
 			  <main style='text-align:center'>
 			    <p style='text-align:center'> In order to use some of the features in prokemia you need to confrim your email address first.</p>
 			    <p style='text-align:center'> Use the code below to verify your email address.</p>
 			    <p onclick="copyText()" style="text-align:center;background-color: #009393;padding: 10px;color:#fff;border:none;font-size: 20px;font-weight:bold;">${payload.code}</p>
 			    <p style='text-align:center'>If you have any questions send us your issues at <a style='color:text-align:center'
-			        href='mailto: help@prokemia.com' target="_blank">help@prokemia.com</a>.</br>We would love to hear from you.</p>
+					href='mailto: help@prokemia.com' target="_blank">help@prokemia.com</a>.</br>We would love to hear from you.</p>
+				<a href="${payload.link}" target="_blank" style="text-align:center;color:#009393;cursor:pointer;font-weight:bold;">Click to go to verify page.</a>
 			  </main>
 			  <script>
 		        function copyText() {
