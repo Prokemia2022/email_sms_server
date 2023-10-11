@@ -1,5 +1,6 @@
+// Sends an approved email to the sales people.
 const express = require("express");
-const Transporter = require('../controllers/transporter.js');
+const Transporter = require('../../controllers/transporter');
 
 const router = express.Router()
 

@@ -23,7 +23,7 @@ router.post("/",async(req,res)=>{
 			      distributors - all in one platform.Access all easily.</p>
 
 			    <p>In Order to access your account you need to activate your account by clicking the link below.</p>
-			    <a href='https://prokemia-client-web.vercel.app/activate/${payload._id}' target="_blank">
+			    <a href='https://prokemia.com/activate/${payload._id}' target="_blank">
 			    	<button style="background-color: #009393;padding: 10px;color:#fff;border:none;font-size: 20px;margin:auto;cursor: pointer;">ActivateAccount</button>
 			    </a>
 			    <p>If you have any questions send us your issues at <a style='color:font-weight: bold;'
@@ -45,8 +45,6 @@ router.post("/",async(req,res)=>{
 		  	console.log(err)
 		  	return res.status(400).send("You need to enter a valid email account to register an account with us.")
 		  });
-		  // return res.status(200).send("Email sent successfully")
-		  //console.log("Message sent: %s", info.messageId);
 	}
 })
 

@@ -15,7 +15,7 @@ router.post("/",async(req,res)=>{
 
 		const email_template = `
 			<body style='font-family: Poppins; padding: 10px;'>
-			  <h2 style="color:#009898;font-size: 36px;text-align: center;">You have a new sample request from ${payload.requester_email}</h2>
+			  <h2 style="color:#009898;font-size: 36px;text-align: center;">You have a new sample request from ${payload.requester_email} from Prokemia.</h2>
 			  <main style='margin-top: 10px;'>
 			    <p style='font-weight: ;'>${payload.requester_email} is seeking information and a sample about ${payload.name_of_product}.</p>
 			    <p style='font-weight: ;'>They require a sample for ${payload.amount} ${payload.unit} of ${payload.name_of_product} for ${payload.description_for_use}.</p>

@@ -1,5 +1,5 @@
 const express = require("express");
-const Transporter = require('../controllers/transporter.js');
+const Transporter = require('../../controllers/transporter.js');
 
 const router = express.Router()
 

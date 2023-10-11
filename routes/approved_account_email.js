@@ -12,12 +12,14 @@ router.post("/",async(req,res)=>{
 	if (!payload){
 		return res.status(400).send("No details were found")
 	}else{
-		const changed_password_email_template = `
+
+		const approve_account_email_template = `
 			<body style='font-family: Poppins; padding: 10px;'>
-			  <h2 style="color:#000;font-size: 36px;text-align: center;">Your password has been changed successfuly.</h2>
+			  <h2 style="color:green;font-size: 36px;text-align: center;">Your account has been approved.</h2>
 			  <main style='text-align:center'>
-			    <p style='text-align:center'> You recently changed your account password</p>
-			    <p style='text-align:center'>Dont Worry it happens!.</p>
+			    <p style='text-align:center'> We are delighted to notify you that your account has been approved .</p>
+			    <p style='text-align:center'>You can access features in our platform and use your account appropriately as per our company's guidelines.</p>
+			    <p style='text-align:center'>Welcome and we appreciate you for joining our community.</p>
 			    <p style='text-align:center'>If you have any questions send us your issues at <a style='color:text-align:center'
 			        href='mailto: help@prokemia.com' target="_blank">help@prokemia.com</a>.</br>We would love to hear from you.</p>
 			  </main>
@@ -25,12 +27,12 @@ router.post("/",async(req,res)=>{
 		`
 
 		  // send mail with defined transport object
-		  await Transporter.sendMail({
+		await Transporter.sendMail({
 		    from: email, // sender address
 		    to: payload.email, // list of receivers
-		    subject: "Password changed Successfuly", // Subject line
-		    text: '', // plain text body
-		    html: changed_password_email_template, // html body
+		    subject: "Prokemia Account Approved", // Subject line
+		    text: 'Your account has approved', // plain text body
+		    html: approve_account_email_template, // html body
 		  });
 
 		  // console.log("Message sent: %s", info.messageId);
