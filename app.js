@@ -18,6 +18,9 @@ const suspend_account_email = require("./routes/suspend_account.js");
 const email_verification = require("./routes/email_verification.js");
 const quotation_email = require("./routes/send_quotation_email.js");
 const sample_email = require("./routes/send_sample_email.js");
+const approved_account = require("./routes/approved_account_email.js");
+const approved_order = require("./routes/Orders/approved_order.js");
+const rejected_order = require("./routes/Orders/rejected_order.js");
 
 let origins = ['https://prokemia-admin-web.vercel.app','https://prokemia-admin-web-musembi77.vercel.app','http://localhost:3000','https://prokemia-client-web.vercel.app','http://localhost:5000'];
 app.use(cors({credentials:true, origin: "*"}));
@@ -37,6 +40,9 @@ app.use("/api/reactivate_account_email",reactivate_account_email);//done
 app.use("/api/email_verification",email_verification);//done
 app.use("/api/quotation_email",quotation_email);//done
 app.use("/api/sample_email",sample_email);//done
+app.use("/api/approved_account_email",approved_account);//done
+app.use("/api/approved_order_email",approved_order);//done
+app.use("/api/reject_order_email",rejected_order);//done
 
 app.get('/',(req,res)=>{
 	res.send("<html> <head>server Response</head><body><h1> This page was render directly from the server <p>Hello there welcome to Prokemia</p></h1></body></html>")

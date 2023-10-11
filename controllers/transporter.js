@@ -1,3 +1,4 @@
+//Creates the transporter for the email.
 const nodemailer = require("nodemailer");
 
 let Transporter = nodemailer.createTransport({
@@ -6,8 +7,8 @@ let Transporter = nodemailer.createTransport({
     port: 465,
     secure: true, // true for 465, false for other ports
     auth: {
-        user: 'prokemia@prokemia.com', // generated ethereal user
-        pass: 'prokemia@prokemia.com', // generated ethereal password 3vk:NrV497X
+        user: 'prokemia@prokemia.com',
+        pass: 'prokemia@prokemia.com', 
     },
     tls:{
         rejectUnauthorized:false
